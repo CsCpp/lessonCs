@@ -1,17 +1,22 @@
 ﻿using System;
+
+                            //Операторв
+                            // Арифметические операции с числами
+
+
 namespace LessonCs
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            string str = "5";
-            int n = int.Parse(str);
-            Console.WriteLine(n);
-            int b = Convert.ToInt32(str);
-            Console.WriteLine(b);
+            int a = 10;
+            int b = 3;
+             double result = (double)a / b;
+            int c = a % b;    
 
+            Console.WriteLine("Частное a/b=" + result);
+            Console.WriteLine("Остаток от деления = "+c);
 
             Console.ReadLine();
         }
