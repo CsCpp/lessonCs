@@ -1,83 +1,30 @@
 ﻿using System;
 using System.Drawing;
 
-//Рисуем треугольnики
+//Функции и методы
 
 
-
-namespace LessonCs
-{
     class Program
     {
+    static void PrintMy(int a) { 
+    Console.WriteLine(a);
+    }
+    static int Sum (int a, int b)
+    {
+        return a + b;
+    }
         static void Main(string[] args)
         {
 
-           Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Введите высоту треугольника :");
-            int l = int.Parse(Console.ReadLine());
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("-------------------------------------------------------");
-            for (int i = 0; i < l; i++)
-            {
-                for (int ai=0;ai<=i; ai++) 
-                { Console.Write("*");
+           Console.ForegroundColor = ConsoleColor.DarkRed;
+            int a=int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = a + b;
+            Console.WriteLine(c);
 
-                }    
-                Console.WriteLine();
-            }
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("-------------------------------------------------------");
-            for (int i = l; i > 0; i--)
-            {
-                for (int ai = 0; ai < i; ai++)
-                {
-                    Console.Write("*");
+        PrintMy(Sum(a, b));
 
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("-------------------------------------------------------");
-            for (int i = 0; i < l; i++)
-            {
-                for (int ai = l; ai > i; ai--)
-                {
-                    Console.Write("*");
-
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("-------------------------------------------------------");
-            for (int i = 0; i < l; i++)
-            {
-                for (int ai = l-1; ai > i; ai--)
-                {
-                    Console.Write(" ");
-
-                }
-                for (int ai = 0; ai <= i; ai++)
-                {
-                    Console.Write("*");
-
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("-------------------------------------------------------");
-            
-          /*  for (int i = 0; i < l; i++)
-            {
-                Console.SetCursorPosition(l-i,i+1);
-                for (int ai = 0; ai <= i; ai++)
-                {
-                    Console.Write("*");
-
-                }
-                Console.WriteLine();
-
-            }*/
+        Console.ReadLine();
         }
 
     }
-}
