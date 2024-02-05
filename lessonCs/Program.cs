@@ -4,24 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//оператор null-объединения ??
+//оператор присваивания объединения со значением null ??=
 
 
 namespace Lesson
 {
     class Program
-    {
+    {static int[] GetArray()
+        {
+            int[] myArray = null;
+            return myArray; }
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
            
             string str = null;
-            if(str == null) { Console.WriteLine("Null");}
 
-            Console.WriteLine(str ?? "Нету данных");
+          str ??= string.Empty;
+            Console.WriteLine("Длинна строки = "+str.Length);
 
-            string result=str ?? string.Empty;
-            Console.WriteLine("Длинна строки = "+result.Length);
+            int[] myArr = GetArray();
+
+            myArr ??= new int[0];
+
+            Console.WriteLine("Колличество элементов в массиве = "+ myArr.Length);
+
+
             
             Console.ReadLine();
         }
