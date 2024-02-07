@@ -36,6 +36,13 @@ namespace Lesson
             MyStruct myStruct = new MyStruct();
             Foo2(ref  myStruct); // ссылка не копируется а передается
 
+
+            int[] arr = { 4, 5, 2, 7, 9 };
+            ref int b = ref arr[0];
+            Console.WriteLine(arr[0]);
+            b = -53;
+            Console.WriteLine(arr[0]);
+            Console.WriteLine(b);
             
             Console.ReadLine();
         }
