@@ -4,58 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//оператор условного null ?.
-
+//ключевое слово ref
+//передача аргументов по ссылке
 
 namespace Lesson
 {
+    struct MyStruct
+    {
+        public int a;
+        public double b;
+        public float c;
+    }
     class Program
-    {static int[] GetArray()
+    {
+        static void Foo2(ref MyStruct myStruct)
         {
-            int[] myArray = null;
-            return myArray; }
-        public class Person
-        {
-            public string FirstName { get; set; }
-
-            public string MiddleName { get; set; }
-
-            public string SecondName {  get; set; }
-
-            public Contacts Contacts { get; set; }
-            public string GetFullName() 
-            {
-                return  $"Фамилия:      {SecondName     ?? "null"} | " +
-                        $"Имя:          {FirstName      ?? "null"} | " +
-                        $"Отчество:     {MiddleName     ?? "null"}"; 
-            }
-
-            public string GetPhoneNumber() { return Contacts?.PhoneNumber ?? "null"; }
+            myStruct.a = -5;
         }
-        public class Contacts
+
+        static void Foo(ref int a)
         {
-            public string PhoneNumber{get; set;}
-            public string Email { get; set;}
-        }
-        static Person GetPerson()
-        {
-            Person person = new Person() { Contacts=new Contacts() { PhoneNumber="123456789"} }; // null;
-            return person;
+            a = -5;
         }
 
         static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-           
-           int[] myArr = GetArray();
+            int a = 2;
+            Foo(ref a);
+            Console.WriteLine(a);
 
-          //  myArr ??= new int[0];
-
-            Console.WriteLine("Сумма элементов в массиве = "+ (myArr?.Sum()??0));
-            Person person=GetPerson();
-            string phoneNumber = person?.Contacts?.PhoneNumber ?? "null";
-            Console.WriteLine(phoneNumber);
-
+            MyStruct myStruct = new MyStruct();
+            Foo2(ref  myStruct); // ссылка не копируется а передается
 
             
             Console.ReadLine();
