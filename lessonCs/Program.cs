@@ -4,46 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//ключевое слово ref
-//передача аргументов по ссылке
+//изменение количества элементов в массиве
+// универсальный параметр T, универсальные шаблоны
+
 
 namespace Lesson
 {
-    struct MyStruct
-    {
-        public int a;
-        public double b;
-        public float c;
-    }
     class Program
-    {
-        static void Foo2(ref MyStruct myStruct)
+    { static void Resize<T>(ref T [] array, int newSize)
         {
-            myStruct.a = -5;
+            T[] newArray=new T[newSize];
+            for (int i=0; i<array.Length && i<newArray.Length; ++i)
+            {
+                newArray[i]= array[i];
+            }
+            array= newArray;
         }
-
-        static void Foo(ref int a)
-        {
-            a = -5;
-        }
-
         static void Main(string[] args)
         {
-            int a = 2;
-            Foo(ref a);
-            Console.WriteLine(a);
-
-            MyStruct myStruct = new MyStruct();
-            Foo2(ref  myStruct); // ссылка не копируется а передается
-
-
+           
             int[] arr = { 4, 5, 2, 7, 9 };
-            ref int b = ref arr[0];
-            Console.WriteLine(arr[0]);
-            b = -53;
-            Console.WriteLine(arr[0]);
-            Console.WriteLine(b);
-            
+
+            Array.Resize(ref arr, 8);
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Resize(ref arr, 10);
+            foreach (var item in arr)
+            {
+                Console.Write(item+" ");
+            }
+            string[] strArr = { "oooo", "xxxxxx", "-------", "+++++++" };
+            Console.WriteLine();
+            foreach (var item in strArr)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Resize(ref strArr, 2);
+            foreach (var item in strArr)
+            {
+                Console.Write(item + " ");
+            }
+
+
             Console.ReadLine();
         }
 
