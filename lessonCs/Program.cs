@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//добавление элементов в массив
+//добавление элементов в начало и конец массива
 
 namespace Lesson
 {
     class Program
-    { static void Insert<T>(ref T [] array,T value, int index)
+    {   static void Insert<T>(ref T [] array,T value, int index)
         {
             if(index>array.Length) { index = array.Length; }
             T[] newArray=new T[(array.Length+1)];
@@ -24,6 +24,14 @@ namespace Lesson
             }
 
             array = newArray;
+        }
+        static void AddFirst<T>(ref T[] array, T valuex)
+        {
+            Insert(ref array, valuex, 0);
+        }
+        static void AddLast<T>(ref T[] array, T valuex)
+        {
+            Insert(ref array, valuex,array.Length);
         }
         static void Main(string[] args)
         {
@@ -40,9 +48,19 @@ namespace Lesson
             {
                 Console.Write(item + " ");
             }
-
-
-
+            Console.WriteLine();
+            AddFirst(ref  arr, 78);
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            AddLast(ref arr, -999);
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
 
             Console.ReadLine();
         }
