@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//удаление элементов массива
+//ключевое слово out
+//разница между ref и out
 
 namespace Lesson
 {
@@ -16,38 +17,30 @@ namespace Lesson
                 Console.Write(arr[i] + " ");
             Console.WriteLine();
         }
-        static void RemoveAt (ref int[] array, int index)
+       static void Foo(ref int value)
         {
-            if(index>(array.Length-1)) index = array.Length-1;
-
-            int[] newArr = new int[array.Length - 1];
-            for(int i=0; i<index; i++)
-               newArr[i] = array[i];
-            for(int i=index+1; i<array.Length; i++)
-                newArr[i-1] = array[i];
-            array=newArr;
+            value++;
+            Console.WriteLine(value);
         }
-        static void RemoveFirst(ref int[] array)
+        static void Bar(out int value)
         {
-            RemoveAt(ref array, 0);
-        }
-        static void RemoveLast(ref int[] array)
-        {
-            RemoveAt(ref array, array.Length-1);
+            value = 6;
+            
         }
 
         static void Main(string[] args)
         {
-           
-            int[] arr = { 4, 5, 2, 7, 9 };
-           PrintArr(ref arr);
+            int a = 56;
+            Console.WriteLine(a);
+            Foo(ref a);
+            Console.WriteLine(a);
+            int f;
+            Bar(out f);
+            Console.WriteLine(f);
+            Bar(out int h);
+            Console.WriteLine(h);
+          
 
-            RemoveAt(ref arr, 3);
-            PrintArr(ref arr);
-            RemoveFirst(ref arr);
-            PrintArr(ref arr);
-            RemoveLast(ref arr);
-            PrintArr(ref arr);
 
             Console.ReadLine();
         }
