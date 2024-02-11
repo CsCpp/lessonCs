@@ -30,16 +30,10 @@ namespace Lesson
 
         static void Main(string[] args)
         {
-            int a = 56;
-            Console.WriteLine(a);
-            Foo(ref a);
-            Console.WriteLine(a);
-            int f;
-            Bar(out f);
-            Console.WriteLine(f);
-            Bar(out int h);
-            Console.WriteLine(h);
-          
+           string str=Console.ReadLine();
+            int.TryParse(str, out int result);
+            Console.WriteLine(result);
+
 
 
             Console.ReadLine();
