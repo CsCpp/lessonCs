@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//ключевое слово PARAMS
+//params object[]
 
 
 namespace Lesson
@@ -12,21 +12,22 @@ namespace Lesson
     class Program
     {  
       
-       static int Sum(params int[] parametrs)
+       static void Sum(params object[] parametrs)
         {
-            int result = 0;
-            foreach(int pPar in parametrs) { result += pPar; }
+            string message = "Тип данных {0} , значение {1}";
+            foreach(var iTem in parametrs)
+            {
+               Console.WriteLine(message, iTem.GetType(), iTem); 
+            }
             
-           return result;
+           
         }
      
 
         static void Main(string[] args)
         {
             int a = 56;
-            int result = Sum(a, 4, 5, 324, -52, -32);
-           
-            Console.WriteLine(result);
+           Sum("Стринг",5,'E',5.34, false, a);
 
 
 
