@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//params object[]
+//необязательные параметры методов
 
 
 namespace Lesson
@@ -12,22 +12,23 @@ namespace Lesson
     class Program
     {  
       
-       static void Sum(params object[] parametrs)
+       static int Sum(int a, int b, bool enLog=false)
         {
-            string message = "Тип данных {0} , значение {1}";
-            foreach(var iTem in parametrs)
+            int result = a + b;
+            if(enLog)
             {
-               Console.WriteLine(message, iTem.GetType(), iTem); 
+                Console.WriteLine("a = "+a);
+                Console.WriteLine("b = " + b);
+                Console.WriteLine("result = " + result);
             }
-            
-           
+           return result;
         }
      
 
         static void Main(string[] args)
         {
-            int a = 56;
-           Sum("Стринг",5,'E',5.34, false, a);
+            Sum(34, 76, true);
+           Console.WriteLine( "Result = " +Sum(5, -56));
 
 
 
