@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//необязательные параметры методов
+//именованные параметры методов
 
 
 namespace Lesson
@@ -12,7 +12,7 @@ namespace Lesson
     class Program
     {  
       
-       static int Sum(int a, int b, bool enLog=false)
+       static int Sum(int a, int b, bool enLog=true)
         {
             int result = a + b;
             if(enLog)
@@ -26,10 +26,9 @@ namespace Lesson
      
 
         static void Main(string[] args)
-        {
-            Sum(34, 76, true);
-           Console.WriteLine( "Result = " +Sum(5, -56));
-
+        { 
+            int value = 76;
+            Sum(b:43,a:value);
 
 
             Console.ReadLine();
