@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//именованные параметры методов
+//           рекурсия 
+//      переполнение стека
 
 
 namespace Lesson
@@ -12,23 +13,19 @@ namespace Lesson
     class Program
     {  
       
-       static int Sum(int a, int b, bool enLog=true)
+       static void Foo(int i)
         {
-            int result = a + b;
-            if(enLog)
-            {
-                Console.WriteLine("a = "+a);
-                Console.WriteLine("b = " + b);
-                Console.WriteLine("result = " + result);
-            }
-           return result;
+            Console.WriteLine(i);
+            i++;
+         if(i<=3)   Foo(i);
+            Console.WriteLine(i);
         }
      
 
         static void Main(string[] args)
-        { 
-            int value = 76;
-            Sum(b:43,a:value);
+        {
+
+            Foo(0);
 
 
             Console.ReadLine();
