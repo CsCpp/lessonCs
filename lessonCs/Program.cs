@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//           рекурсия 
-//      переполнение стека
+//         вывод массива с помощью реккурсии
+
 
 
 namespace Lesson
@@ -13,20 +13,23 @@ namespace Lesson
     class Program
     {  
       
-       static void Foo(int i)
+       static void PrintArray(int[] myArray, int i=0)
         {
-            Console.WriteLine(i);
-            i++;
-         if(i<=3)   Foo(i);
-            Console.WriteLine(i);
+            if(i<myArray.Length)
+            {
+                Console.Write(myArray[i] + "\t");
+                PrintArray(myArray, ++i);
+            }
+           
+          
+           
         }
      
 
         static void Main(string[] args)
         {
-
-            Foo(0);
-
+            int[] myArray = { 132, -2, 453 };
+            PrintArray(myArray);
 
             Console.ReadLine();
         }
