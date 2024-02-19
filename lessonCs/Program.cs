@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//         сумма элементов массива с помощью реккурсии
+//         сумма цифр числа с помощью реккурсии
 
 
 
@@ -13,38 +13,23 @@ namespace Lesson
     class Program
     {
 
-        static int Sum (int[] myArray, int i = 0)
-        {
+        static int Foo (int value)
+        {   if (value < 0) value*=-1;
+            if (value < 10)
+                return value;
+            
+             return value % 10 + Foo(value / 10);
+            
            
-            if (i < myArray.Length)
-            {
-                
-                return myArray[i] + Sum(myArray, ++i);
-            }
-
-            return 0;
 
         }
-        static void PrintArray(int[] myArray, int i=0)
-        {
-            if(i<myArray.Length)
-            {
-                Console.Write(myArray[i] + "\t");
-                PrintArray(myArray, ++i);
-            }
-           
-          
-           
-        }
-     
-
-
+       
         static void Main(string[] args)
         {
-            int[] myArray = { 132, -2, 453 };
-            PrintArray(myArray);
-            Console.WriteLine();
-            Console.WriteLine("Sum = "+Sum(myArray, 0));
+            int myValue = -1111194949;
+            Console.WriteLine(Foo(myValue));
+       
+
 
             Console.ReadLine();
         }
