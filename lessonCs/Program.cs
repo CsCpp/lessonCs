@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//         сумма цифр числа с помощью реккурсии
+//         Преобразование и приведение примитивных типов
 
 
 
@@ -13,24 +13,24 @@ namespace Lesson
     class Program
     {
 
-        static int Foo (int value)
-        {   if (value < 0) value*=-1;
-            if (value < 10)
-                return value;
-            
-             return value % 10 + Foo(value / 10);
-            
-           
-
+        static void Foo (float value)
+        {
+            Console.WriteLine(value);
+         
         }
        
         static void Main(string[] args)
         {
-            int myValue = -1111194949;
-            Console.WriteLine(Foo(myValue));
-       
-
-
+            int a = 258;
+            byte b =(byte) a;  // byte - MAX - 255
+            Foo(a);
+            Console.WriteLine(b);
+            bool c=Convert.ToBoolean(a);
+            Console.WriteLine(c);
+            float e=2.6F;
+            int result = a + (int)e; //(int)(a+e);
+            Console.WriteLine(result);
+            
             Console.ReadLine();
         }
 
