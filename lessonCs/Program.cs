@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//         "Ядерный Ганди" и арифметическое переполнение
+//        Null - совместимые значимые типы (Nullable)
 
 
 
@@ -16,22 +16,26 @@ namespace Lesson
 
         static void Main(string[] args)
         {
-            byte agression = 1;
-            byte democracyModifier = 2;
-            agression=(byte)(agression-democracyModifier);
-
-            Console.WriteLine(agression);
-           
-            checked
-            {
-                democracyModifier -= 2;
-            }
-
-            double s = 1.0 / 0.0;
-            Console.WriteLine(double.IsInfinity(s));
-
-
-
+            
+            int? a = null;
+            Console.WriteLine("--------------------------a?=null---------------------------------");
+            Console.Write("a == null \t\t");
+            Console.WriteLine(a == null);
+            Console.WriteLine("a.HasValue \t\t" + a.HasValue);
+            Console.WriteLine("a.GetValueOrDefault()\t" + a.GetValueOrDefault());
+            Console.WriteLine("a.GetValueOrDefault(3)\t" + a.GetValueOrDefault(3));
+            Console.WriteLine("a ?? 55 \t\t" + (a ?? 55));
+            Console.WriteLine("a = " + a);
+            // Console.WriteLine(a.Value); //Exception
+            a = 2;
+            Console.WriteLine("--------------------------a?=2---------------------------------");
+            Console.Write("a == null \t\t");
+            Console.WriteLine(a == null);
+            Console.WriteLine("a.HasValue \t\t" + a.HasValue);
+            Console.WriteLine("a.GetValueOrDefault()\t" + a.GetValueOrDefault());
+            Console.WriteLine("a.GetValueOrDefault(3)\t" + a.GetValueOrDefault(3));
+            Console.WriteLine("a ?? 55 \t\t" + (a ?? 55));
+            Console.WriteLine("a = \t\t\t" + a);
 
 
             Console.ReadLine();
