@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//        enum
+//        enum, PARSE , switch
 
 
 
@@ -33,7 +33,7 @@ namespace Lesson
             Console.WriteLine((DayOfWeek)3);
             DayOfWeek nextDey=GetNextDay(dayOfWeek);
             Console.WriteLine(nextDey);
-            //-------------------------------------------------------------------------------   
+            //--------------------- проверка   enum  на наличие такого значения ----------------------------------------------------------   
             byte valye = 47;
             if(Enum.IsDefined(typeof(DayOfWeek), valye))
             {
@@ -44,12 +44,36 @@ namespace Lesson
             {
                 Console.WriteLine(valye+ " Нету таких значений");
             }
-            //-------------------------------------------------------------------------------  
+            //----------------------- вывод всего enum  через массив --------------------------------------------------------  
 
             var val2=Enum.GetValues(typeof(DayOfWeek));
             foreach(var i in val2)
             {
                 Console.WriteLine(i);
+            }
+            //-------------------------- PARSE --- enum -----------------------------------------      
+            string strRed=Console.ReadLine();
+            DayOfWeek dayOfWeek1 = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), strRed, ignoreCase: true);
+            Console.WriteLine(dayOfWeek1);
+            //----------------------------- SWITCH --------------------------------------------------      
+            switch (dayOfWeek1)
+            {
+                case DayOfWeek.Monday:
+                    break;
+                case DayOfWeek.Tuesday:
+                    break;
+                case DayOfWeek.Wednesday:
+                    break;
+                case DayOfWeek.Thursday:
+                    break;
+                case DayOfWeek.Friday:
+                    break;
+                case DayOfWeek.Saturday:
+                    break;
+                case DayOfWeek.Sunday:
+                    break;
+                default:
+                    break;
             }
 
             //-------------------------------------------------------------------------------      
