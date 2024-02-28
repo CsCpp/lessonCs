@@ -6,11 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//      методы объекта класса
-
-
-
-
+//      public && private
 
 namespace Lesson
 {
@@ -24,7 +20,8 @@ namespace Lesson
             student.name="Елена";
             student.lastName = "Беркова";
             student.group = "Эл 12-01";
-            student.age = 23;
+            // student.age = 23;
+            student.setAge(23);
             student.id=Guid.NewGuid();
 
             return student;
@@ -34,7 +31,8 @@ namespace Lesson
             var student1=GetStudent();
             student1.Print();
             Student student2 = new Student();
-            student2.age = 35;
+            //  student2.age = 35;
+            student2.setAge(35);
             student2.firstName = "Карлович";
             student2.id=Guid.NewGuid();
             student2.Print();

@@ -12,8 +12,10 @@ namespace lessonCs
         public string name; 
         public string firstName; 
         public string lastName;
-        public int age;
+        private int age;
         public string group;
+       public void setAge (int age)
+        { this.age = age; }
         public void Print()
         {
             Console.WriteLine("Информация о студенте:");
