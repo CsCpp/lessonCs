@@ -6,36 +6,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//      public && private
+//      Инкапсуляция
 
 namespace Lesson
 {
+    class Gun
+    {
+        private bool isLoaded;
+        private void Reload()
+        {
+            Console.WriteLine("Заряжаю");
+            isLoaded= true;
+            Console.WriteLine("Заряжено");
+
+        }
+        public void Shoot()
+        {
+            if(!isLoaded)
+            {
+                Console.WriteLine("Оружие не заряжено");
+
+                Reload();
+            }
+            Console.WriteLine("ПИФ-ПАФ!!!!");
+            isLoaded= false;
+        }
+    }
     class Program
     {
-        static Student GetStudent()
-        {
-            Student student = new Student();
-
-            student.firstName = "Олеговна";
-            student.name="Елена";
-            student.lastName = "Беркова";
-            student.group = "Эл 12-01";
-            // student.age = 23;
-            student.setAge(23);
-            student.id=Guid.NewGuid();
-
-            return student;
-        }
+       
         static void Main(string[] args)
         {
-            var student1=GetStudent();
-            student1.Print();
-            Student student2 = new Student();
-            //  student2.age = 35;
-            student2.setAge(35);
-            student2.firstName = "Карлович";
-            student2.id=Guid.NewGuid();
-            student2.Print();
+           Gun gun = new Gun(); 
+            gun.Shoot();
+            gun.Shoot();
+            gun.Shoot();
+            gun.Shoot();
+            gun.Shoot();
 
 
             Console.ReadLine();
