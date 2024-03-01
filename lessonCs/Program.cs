@@ -6,30 +6,37 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//      Инкапсуляция
+//      Конструктор
 
 namespace Lesson
 {
     class Gun
     {
-        private bool isLoaded;
+        public Gun(bool isLoaded=false)
+        {
+            if(isLoaded) Reload();
+                
+        }
+
+
+        private bool _isLoaded;
         private void Reload()
         {
             Console.WriteLine("Заряжаю");
-            isLoaded= true;
+            _isLoaded= true;
             Console.WriteLine("Заряжено");
 
         }
         public void Shoot()
         {
-            if(!isLoaded)
+            if(!_isLoaded)
             {
                 Console.WriteLine("Оружие не заряжено");
 
                 Reload();
             }
             Console.WriteLine("ПИФ-ПАФ!!!!");
-            isLoaded= false;
+            _isLoaded= false;
         }
     }
     class Program
@@ -37,14 +44,10 @@ namespace Lesson
        
         static void Main(string[] args)
         {
-           Gun gun = new Gun(); 
+           Gun gun = new Gun(isLoaded:true); 
             gun.Shoot();
             gun.Shoot();
-            gun.Shoot();
-            gun.Shoot();
-            gun.Shoot();
-
-
+           
             Console.ReadLine();
         }
 
