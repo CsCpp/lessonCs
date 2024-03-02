@@ -1,17 +1,26 @@
 ﻿using lessonCs;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//      Конструктор
+//    Перегрузка конструктора
 
 namespace Lesson
 {
     class Gun
     {
+        public Gun(Gun gun) 
+        { 
+        _isLoaded=gun._isLoaded;
+        }
+        public Gun() 
+        { 
+        _isLoaded = false;
+        }
         public Gun(bool isLoaded=false)
         {
             if(isLoaded) Reload();
@@ -44,9 +53,15 @@ namespace Lesson
        
         static void Main(string[] args)
         {
-           Gun gun = new Gun(isLoaded:true); 
+            Gun g2 = new Gun();
+            g2.Shoot();
+
+            Gun gun = new Gun(isLoaded:true); 
             gun.Shoot();
             gun.Shoot();
+
+            Gun g3= new Gun(g2);
+            g3.Shoot();
            
             Console.ReadLine();
         }
