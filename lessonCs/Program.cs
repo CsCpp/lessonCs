@@ -7,62 +7,34 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//    Перегрузка конструктора
+//    this
 
 namespace Lesson
 {
-    class Gun
+    class Point
     {
-        public Gun(Gun gun) 
-        { 
-        _isLoaded=gun._isLoaded;
-        }
-        public Gun() 
-        { 
-        _isLoaded = false;
-        }
-        public Gun(bool isLoaded=false)
+        public Point(int x, int y)
         {
-            if(isLoaded) Reload();
-                
+            this._x = x;
+            _y = y;
         }
-
-
-        private bool _isLoaded;
-        private void Reload()
+        public Point(int x, int y, int z) : this(x, y)
         {
-            Console.WriteLine("Заряжаю");
-            _isLoaded= true;
-            Console.WriteLine("Заряжено");
-
+            _z = z;
         }
-        public void Shoot()
-        {
-            if(!_isLoaded)
-            {
-                Console.WriteLine("Оружие не заряжено");
 
-                Reload();
-            }
-            Console.WriteLine("ПИФ-ПАФ!!!!");
-            _isLoaded= false;
-        }
+        private int _x;
+        private int _y;
+        private int _z;
     }
     class Program
     {
        
         static void Main(string[] args)
         {
-            Gun g2 = new Gun();
-            g2.Shoot();
 
-            Gun gun = new Gun(isLoaded:true); 
-            gun.Shoot();
-            gun.Shoot();
-
-            Gun g3= new Gun(g2);
-            g3.Shoot();
-           
+            Point point = new Point(2, 3, 6);
+            
             Console.ReadLine();
         }
 
