@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//    this
+//   Свойства (Properties)
 
 namespace Lesson
 {
@@ -23,6 +23,14 @@ namespace Lesson
             _z = z;
         }
 
+       
+
+        public int _Y
+        {
+            get { return _y; }
+            set { _y = value; }
+        }
+
         private int _x;
         private int _y;
         private int _z;
@@ -34,7 +42,9 @@ namespace Lesson
         {
 
             Point point = new Point(2, 3, 6);
-            
+
+            point._Y = 20;
+            int rrr= point._Y;
             Console.ReadLine();
         }
 
