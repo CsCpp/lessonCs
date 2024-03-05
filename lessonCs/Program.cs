@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//   Свойства (Properties)
+//   Автоматические свойства
 
 namespace Lesson
 {
@@ -28,8 +28,23 @@ namespace Lesson
         public int _Y
         {
             get { return _y; }
-            set { _y = value; }
+            set {
+                if (value < 1)
+                {
+                    _y = 1;
+                    return;
+                }
+                if(value>5)
+                {
+                    _y = 5;
+                    return;
+                }
+                _y = value; }
         }
+
+
+
+        public int _L { get; set; }
 
         private int _x;
         private int _y;
@@ -45,6 +60,8 @@ namespace Lesson
 
             point._Y = 20;
             int rrr= point._Y;
+            point._L = rrr;
+            rrr= point._L;
             Console.ReadLine();
         }
 
