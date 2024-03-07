@@ -13,8 +13,16 @@ namespace Lesson
 {
     class Point
     {
-        public int a;
-        public static int b;
+        
+        private static int b;
+        public void SetB(int b)
+        { 
+        Point.b = b;
+        }
+        public void PrintB()
+        {
+            Console.WriteLine(b);
+        }
     }
        
     class Program
@@ -24,11 +32,10 @@ namespace Lesson
         {
 
             Point point = new Point();
-                point.a = 22;
-                Point point2 = new Point();
-                point2.a = 33;
-                Point.b = 1;
-
+            point.SetB(1);
+            Point point2 = new Point();
+            point2.PrintB();
+       
 
                 Console.ReadLine();
         }
