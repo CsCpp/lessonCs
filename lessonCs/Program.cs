@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//   ключевое слово static
+//   static  методы класса
 
 namespace Lesson
 {
@@ -18,6 +18,15 @@ namespace Lesson
         public void SetB(int b)
         { 
         Point.b = b;
+        }
+        public static void Foo() 
+        {
+            Console.WriteLine("Метод Foo " + b);
+
+        }
+        public  void Bar() 
+        {
+            Console.WriteLine("Метод Bar " + b);
         }
         public void PrintB()
         {
@@ -31,13 +40,17 @@ namespace Lesson
         static void Main(string[] args)
         {
 
+           
+            
+            Point.Foo();
             Point point = new Point();
             point.SetB(1);
-            Point point2 = new Point();
-            point2.PrintB();
-       
+            Point.Foo();
+            point.Bar();
 
-                Console.ReadLine();
+
+
+            Console.ReadLine();
         }
 
         
