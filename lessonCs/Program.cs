@@ -7,31 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//   static  методы класса
+//   static свойства
 
 namespace Lesson
 {
     class Point
     {
         
-        private static int b;
-        public void SetB(int b)
-        { 
-        Point.b = b;
-        }
-        public static void Foo() 
-        {
-            Console.WriteLine("Метод Foo " + b);
+        private static int a;
 
-        }
-        public  void Bar() 
+        public static int A
         {
-            Console.WriteLine("Метод Bar " + b);
+            get { return a; }
+            set { a = value; }
         }
-        public void PrintB()
-        {
-            Console.WriteLine(b);
-        }
+
+
     }
        
     class Program
@@ -39,15 +30,10 @@ namespace Lesson
        
         static void Main(string[] args)
         {
-
-           
-            
-            Point.Foo();
             Point point = new Point();
-            point.SetB(1);
-            Point.Foo();
-            point.Bar();
-
+            Point.A = 23;
+            int b=Point.A;
+            int c=Point.A;
 
 
             Console.ReadLine();
