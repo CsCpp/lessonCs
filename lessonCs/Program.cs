@@ -13,6 +13,10 @@ namespace Lesson
 {
     class Point
     {
+        public Point()
+        {
+            Counter++;
+        }
         
         private static int a;
 
@@ -21,7 +25,20 @@ namespace Lesson
             get { return a; }
             set { a = value; }
         }
+        public static int B { get; set; }
 
+        private static int counter;
+
+        public int Counter
+        {
+            get { return counter; }
+           private set { counter = value; }
+        }
+
+        public int getCounter() 
+        {
+            return Counter;
+        }
 
     }
        
@@ -34,7 +51,13 @@ namespace Lesson
             Point.A = 23;
             int b=Point.A;
             int c=Point.A;
-
+            Point point2 = new Point();
+            Point point3 = new Point();
+           // Point point4 = new Point();
+           
+            Console.WriteLine(point.getCounter());
+            Console.WriteLine(point3.getCounter());
+            Console.WriteLine(point2.Counter);
 
             Console.ReadLine();
         }
