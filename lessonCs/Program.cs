@@ -13,13 +13,19 @@ namespace Lesson
 {
     class MyClass
     {
+        int a;
+        static int b;
         public MyClass() 
         {
             Console.WriteLine("MyClass  конструктор");
+            a++;
+            b++;
         }
         static MyClass()
         {
             Console.WriteLine("static MyClass  конструктор");
+            b++;
+
         }
         public static void Foo()
         {
@@ -31,7 +37,11 @@ namespace Lesson
     {       
         static void Main(string[] args)
         {
-           MyClass myClass = new MyClass();
+          MyClass.Foo();
+
+
+
+            MyClass myClass = new MyClass();
             MyClass myClass2 = new MyClass();
             MyClass myClass3 = new MyClass();
 
