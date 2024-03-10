@@ -11,40 +11,37 @@ using System.Threading.Tasks;
 
 namespace Lesson
 {
-    class MyClass
+    class Reposit
     {
-        int a;
-        static int b;
-        public MyClass() 
+        private static string conString;
+        static Reposit()
         {
-            Console.WriteLine("MyClass  конструктор");
-            a++;
-            b++;
+            ConfigManager st = new ConfigManager();
+            conString=st.GetConnString();
         }
-        static MyClass()
+        public void GetData()
         {
-            Console.WriteLine("static MyClass  конструктор");
-            b++;
+            Console.WriteLine("Использую: " + conString);
+        }
 
-        }
-        public static void Foo()
+
+    }
+    class ConfigManager
+    {
+        public string GetConnString()
         {
-            Console.WriteLine("static Foo");
+            return "Local D8";
         }
+
+
     }
        
     class Program
     {       
         static void Main(string[] args)
         {
-          MyClass.Foo();
-
-
-
-            MyClass myClass = new MyClass();
-            MyClass myClass2 = new MyClass();
-            MyClass myClass3 = new MyClass();
-
+         Reposit rep= new Reposit();
+            rep.GetData();
 
             Console.ReadLine();
         }
