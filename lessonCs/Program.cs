@@ -7,41 +7,33 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//   static конструктор
+//   static class
 
 namespace Lesson
 {
-    class Reposit
+    static class MyClass
     {
-        private static string conString;
-        static Reposit()
+        static int a;
+        static  MyClass()
         {
-            ConfigManager st = new ConfigManager();
-            conString=st.GetConnString();
+            a = 1;
         }
-        public void GetData()
+        public static void Foo()
         {
-            Console.WriteLine("Использую: " + conString);
+            Console.WriteLine("Foo "+ a);
+
         }
-
-
+        public static void Bar() { Console.WriteLine("Bar " + a); }
     }
-    class ConfigManager
-    {
-        public string GetConnString()
-        {
-            return "Local D8";
-        }
-
-
-    }
+    
        
     class Program
     {       
         static void Main(string[] args)
         {
-         Reposit rep= new Reposit();
-            rep.GetData();
+        MyClass.Foo();
+
+            Console.WriteLine(Math.Cos(2));
 
             Console.ReadLine();
         }
