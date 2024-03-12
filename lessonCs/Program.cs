@@ -7,34 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//   static class
-
+//  Extension методы (метод расширения) (расширяющие методы)
 namespace Lesson
 {
-    static class MyClass
-    {
-        static int a;
-        static  MyClass()
-        {
-            a = 1;
-        }
-        public static void Foo()
-        {
-            Console.WriteLine("Foo "+ a);
-
-        }
-        public static void Bar() { Console.WriteLine("Bar " + a); }
-    }
+  
     
        
     class Program
     {       
         static void Main(string[] args)
         {
-        MyClass.Foo();
+        
+            DateTime curDateTime = DateTime.Now;
+            curDateTime.Print();
 
-            Console.WriteLine(Math.Cos(2));
-
+            DateTime.Now.Print();
             Console.ReadLine();
         }
 
