@@ -7,12 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//  Extension методы (метод расширения) (расширяющие методы)
+//  частичные типы // partial  классы, методы
 namespace Lesson
 {
-  
     
-       
     class Program
     {       
         static void Main(string[] args)
