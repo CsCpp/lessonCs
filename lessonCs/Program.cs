@@ -15,11 +15,13 @@ namespace Lesson
     {       
         static void Main(string[] args)
         {
-        
-            DateTime curDateTime = DateTime.Now;
-            curDateTime.Print();
 
-            DateTime.Now.Print();
+            Person person = new Person("Linkoln", "Pavel");
+            person.PrintFullName();
+
+
+
+
             Console.ReadLine();
         }
 
