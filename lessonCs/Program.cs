@@ -15,10 +15,16 @@ namespace Lesson
         
         public const double PI=3.14;
         public const string MY_ERROR = "some error";
-        public readonly int a;
-        public MyClass(int _a = 3) 
+        public readonly int _a;
+        public static readonly int _b;
+
+        static MyClass()
+        { 
+        _b= 100;
+        }
+        public MyClass(int a = 3) 
         {
-        a=_a;
+        _a=a;
         }
         public void Foo() 
         {
@@ -31,11 +37,11 @@ namespace Lesson
         static void Main(string[] args)
         {
 
-
+            Console.WriteLine(MyClass._b);
             Console.WriteLine(MyClass.MY_ERROR);
             MyClass myClass = new MyClass(44);
 
-            Console.WriteLine(myClass.a);
+            Console.WriteLine(myClass._a);
 
             Console.ReadLine();
         }
