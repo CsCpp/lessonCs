@@ -7,28 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// const VS readonly
+// синтаксис инициализации объектов
 namespace Lesson
 {
-    class MyClass
+    class Cat
     {
-        
-        public const double PI=3.14;
-        public const string MY_ERROR = "some error";
-        public readonly int _a;
-        public static readonly int _b;
 
-        static MyClass()
-        { 
-        _b= 100;
-        }
-        public MyClass(int a = 3) 
+        public int Age {get; set;}
+        public string Name { get; set;}
+
+        public Cat() { }
+
+        public Cat(int age, string name) 
         {
-        _a=a;
-        }
-        public void Foo() 
-        {
-           
+        Age= age;
+            Name= name;
         }
     }
     
@@ -36,12 +29,17 @@ namespace Lesson
     {       
         static void Main(string[] args)
         {
+            Cat cat1= new Cat();
+            cat1.Age = 2;
+            cat1.Name = "SANYA";
 
-            Console.WriteLine(MyClass._b);
-            Console.WriteLine(MyClass.MY_ERROR);
-            MyClass myClass = new MyClass(44);
+            Cat cat2 = new Cat
+            {
+                Age = 3,
+                Name = "Limpopo"
+            };
+           
 
-            Console.WriteLine(myClass._a);
 
             Console.ReadLine();
         }
