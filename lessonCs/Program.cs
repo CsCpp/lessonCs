@@ -7,41 +7,44 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// синтаксис инициализации объектов
+//  наследование
 namespace Lesson
 {
-    class Cat
+   class Person
     {
-
-        public int Age {get; set;}
-        public string Name { get; set;}
-
-        public Cat() { }
-
-        public Cat(int age, string name) 
+        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public void PrintName()
         {
-        Age= age;
-            Name= name;
+            Console.WriteLine($"Меня зовут {FirstName}");
         }
+
     }
     
     class Program
     {       
         static void Main(string[] args)
         {
-            Cat cat1= new Cat();
-            cat1.Age = 2;
-            cat1.Name = "SANYA";
-
-            Cat cat2 = new Cat
-            {
-                Age = 3,
-                Name = "Limpopo"
-            };
            
+           Person person = new Person {Name="Лиза", FirstName="СУ" };
+            person.PrintName();
 
+          
+            Student student = new Student { Name = "Jon", FirstName = "KB" };
+            student.PrintName();
+            student.Games();
+
+            Person personStudent = new Student { Name = "Maki", FirstName = "Laren" };
+            personStudent.PrintName().;
 
             Console.ReadLine();
+        }
+        class Student : Person
+        {
+            public void Games()
+            {
+                Console.WriteLine("Играю");
+            }
         }
 
         
