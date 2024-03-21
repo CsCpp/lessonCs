@@ -20,6 +20,11 @@ namespace Lesson
         }
         public int X {  get; set; }
         public int Y { get; set; }  
+        public void Print2D()
+        {
+            Console.Write($"x = {X}\ty =  {Y}");
+
+        }
 
     }
     class Point3D:Point2D
@@ -29,7 +34,13 @@ namespace Lesson
             Z=z;
             Console.WriteLine("Конструктор 3Д");
         }
-        public int Z {  get; set; } 
+        public int Z {  get; set; }
+        public void Print3D()
+        {
+            base.Print2D();
+            Console.Write($"\tz =  {Z}");
+
+        }
 
     }
     class Program
@@ -41,6 +52,11 @@ namespace Lesson
             point.Y = 3;
             point.Z = 3;
           */
+            point.Print3D();
+
+
+
+
 
             Console.ReadLine();
         }
