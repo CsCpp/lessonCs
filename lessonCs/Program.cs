@@ -7,46 +7,43 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//  наследование
+//  base и наследование
 namespace Lesson
 {
-   class Person
+   class Point2D
     {
-        public string Name { get; set; }
-        public string FirstName { get; set; }
-        public void PrintName()
+        public Point2D(int x, int y)
         {
-            Console.WriteLine($"Меня зовут {FirstName}");
+            X = x;
+            Y = y;
+            Console.WriteLine("Конструктор 2Д");
         }
+        public int X {  get; set; }
+        public int Y { get; set; }  
 
     }
-    
+    class Point3D:Point2D
+    {
+        public Point3D(int x, int y, int z):base(x,y)
+        {
+            Z=z;
+            Console.WriteLine("Конструктор 3Д");
+        }
+        public int Z {  get; set; } 
+
+    }
     class Program
     {       
         static void Main(string[] args)
         {
-           
-           Person person = new Person {Name="Лиза", FirstName="СУ" };
-            person.PrintName();
-
-          
-            Student student = new Student { Name = "Jon", FirstName = "KB" };
-            student.PrintName();
-            student.Games();
-
-            Person personStudent = new Student { Name = "Maki", FirstName = "Laren" };
-            personStudent.PrintName().;
+           Point3D point = new Point3D(1,2,3);
+            /*point.X = 3;
+            point.Y = 3;
+            point.Z = 3;
+          */
 
             Console.ReadLine();
         }
-        class Student : Person
-        {
-            public void Games()
-            {
-                Console.WriteLine("Играю");
-            }
-        }
-
-        
+               
     }
 }
