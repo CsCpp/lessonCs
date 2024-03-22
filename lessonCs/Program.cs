@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-//  base и наследование
+// использование операторов  as и is
 namespace Lesson
 {
-   class Point2D
+   class Point2D 
     {
         public Point2D(int x, int y)
         {
@@ -47,14 +47,22 @@ namespace Lesson
     {       
         static void Main(string[] args)
         {
-           Point3D point = new Point3D(1,2,3);
+            object obj = new Point3D(1,2,3);
             /*point.X = 3;
             point.Y = 3;
             point.Z = 3;
           */
-            point.Print3D();
+            Point3D point = obj as Point3D;
+            if (point != null)
+            {
 
-
+                point.Print3D();
+            }
+           
+            if(obj is Point3D point2) 
+            {
+                point2.Print3D();
+            }
 
 
 
