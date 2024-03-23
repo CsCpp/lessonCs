@@ -7,63 +7,47 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// использование операторов  as и is
+// protected и наследование
 namespace Lesson
 {
-   class Point2D 
+    class A
     {
-        public Point2D(int x, int y)
-        {
-            X = x;
-            Y = y;
-            Console.WriteLine("Конструктор 2Д");
-        }
-        public int X {  get; set; }
-        public int Y { get; set; }  
-        public void Print2D()
-        {
-            Console.Write($"x = {X}\ty =  {Y}");
+        public int publicFiled;
+        private int privateFiled;
+        protected int protectedFiled;
 
+        public A()
+        {
+            Console.WriteLine(publicFiled);     //поле доступно
+            Console.WriteLine(privateFiled);    //поле доступно
+            Console.WriteLine(protectedFiled);  //поле доступно
         }
-
+        public void Foo()
+        {
+            Console.WriteLine(publicFiled);     //поле доступно
+            Console.WriteLine(privateFiled);    //поле доступно
+            Console.WriteLine(protectedFiled);  //поле доступно
+        }
     }
-    class Point3D:Point2D
+    class B : A
     {
-        public Point3D(int x, int y, int z):base(x,y)
+        public B()
         {
-            Z=z;
-            Console.WriteLine("Конструктор 3Д");
+            Console.WriteLine(publicFiled);     //поле доступно
+                                                //  Console.WriteLine(privateFiled);    //поле НЕдоступно
+            Console.WriteLine(protectedFiled);  //поле доступно
         }
-        public int Z {  get; set; }
-        public void Print3D()
-        {
-            base.Print2D();
-            Console.Write($"\tz =  {Z}");
-
-        }
-
     }
     class Program
     {       
         static void Main(string[] args)
         {
-            object obj = new Point3D(1,2,3);
-            /*point.X = 3;
-            point.Y = 3;
-            point.Z = 3;
-          */
-            Point3D point = obj as Point3D;
-            if (point != null)
-            {
+            A a = new A();
+            a.Foo();    
 
-                point.Print3D();
-            }
-           
-            if(obj is Point3D point2) 
-            {
-                point2.Print3D();
-            }
-
+                B b = new B();
+                b.Foo();
+            
 
 
             Console.ReadLine();
