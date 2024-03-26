@@ -8,50 +8,66 @@ using System.Threading.Tasks;
 
 //      OOП
 // полтморфиз
-// virtual
-// override
+// обстрактный класс, метод, свойство
+
+
 namespace Lesson
 {
-    class Car
+    abstract class Weapon
     {
-        protected virtual void StartEngine()
+        public abstract void Fire();
+        public abstract int Damage { get; }
+
+        public void ShowInfo()
         {
-            Console.WriteLine("Двигатель работает!");
+            Console.WriteLine($"{GetType().Name} Damage: {Damage}");
+
         }
-        public virtual void Drive()
+        
+    }
+   class Player
+    {
+        public void Fire(Weapon weapon)
         {
-            StartEngine();
-            Console.WriteLine("Машинка  чухчухчух");
+            weapon.Fire();
+        }
+        public void ShowInfo(Weapon weapon)
+        {
+        weapon.ShowInfo();  
         }
     }
-    class SportCar : Car
+    class Gun : Weapon
     {
-        protected override void StartEngine()
+        public override int Damage { get { return 23; } }
+
+        public override void Fire()
         {
-            Console.WriteLine("Двигатель, ВАСССЯ, РРРРРНДНДН!");
-        }
-        public override void Drive()
-        {
-            StartEngine();
-            Console.WriteLine("Машинка быстро бЗЗЗЗЗЗ");
+            Console.WriteLine("BUM!");
         }
     }
-    class Person
+    class Bow : Weapon
     {
-        public void Drive(Car car)
+        public override int Damage => 3;
+        public override void Fire()
         {
-            
-            car.Drive();
+            Console.WriteLine("Fiuxxx!");
         }
     }
-   
+
     class Program
     {       
         static void Main(string[] args)
         {
-           Person person = new Person();
-            person.Drive(new Car());
-            person.Drive(new SportCar());
+           Player player = new Player();
+            Weapon[] inwentory = {new Gun(),new Bow()};
+            foreach (var iter in inwentory) 
+            {
+                player.ShowInfo(iter);
+                player.Fire(iter);
+                Console.WriteLine();
+            }
+            
+
 
 
             Console.ReadLine();
