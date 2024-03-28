@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// полтморфиз
+// полтморфизм
 // обстрактный класс, метод, свойство
 
 
