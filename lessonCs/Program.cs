@@ -7,61 +7,72 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// полтморфизм и интерфейс
+// наследование интерфейсов
 
 
 
 namespace Lesson
 {
-    interface IDateProvider
+    interface IWeapon
     {
-        string GetData();
+        void Fire();
     }
-    interface IDataProcessor
+    interface ITrowWeapon: IWeapon
     {
-        void ProcessData(IDateProvider dateProvider);
+        void Trow();
     }
-    class ConsoleDataProcessor : IDataProcessor
+    class Gun : IWeapon
     {
-        public void ProcessData(IDateProvider dateProvider)
+        public void Fire()
         {
-            Console.WriteLine(dateProvider.GetData());
-        }
-    }
-    class DbDataProvider : IDateProvider
-    {
-        public string GetData()
-        {
-            return "Данные из базы данных";
-        }
-    }
-    class FileDataProvider : IDateProvider
-    {
-        public string GetData()
-        {
-            return "Данные из файла";
 
+            Console.WriteLine($"{GetType().Name}: Пыщ!");
         }
     }
-    class APIDataProvider : IDateProvider
+    class LaserGun : IWeapon
     {
-        public string GetData()
+        public void Fire()
         {
-            return "Данные из API";
+
+            Console.WriteLine($"{GetType().Name}: Пиу!");
+        }
+
+       
+    }
+    class Knife : ITrowWeapon
+    {
+        public void Fire()
+        {
+            Console.WriteLine($"{GetType().Name}: ШлЁп!");
+        }
+        public void Trow()
+        {
+            Console.WriteLine($"{GetType().Name}: СВИЩЬЬЬ!");
+        }
+    }
+    class Player
+    {
+        public void Fire(IWeapon wepon) 
+        {
+        wepon.Fire();
+        }
+        public void Throw(ITrowWeapon weapon)
+        {
+           weapon.Trow();
+
         }
     }
     class Program
     {       
         static void Main(string[] args)
         {
-           IDataProcessor processor = new ConsoleDataProcessor();   
-
-            processor.ProcessData(new APIDataProvider());
-            processor.ProcessData(new FileDataProvider());
-            processor.ProcessData(new DbDataProvider());
-
-
-
+          Player player = new Player();
+            IWeapon[] inventory = {new Gun(), new LaserGun(), new Knife() };
+            foreach (var item in inventory)
+            {
+                player.Fire(item);
+            }
+            player.Throw(new Knife());  
             Console.ReadLine();
         }
                
