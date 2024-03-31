@@ -7,74 +7,70 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// наследование интерфейсов
-
+// явная реализация интерфейсов
 
 
 namespace Lesson
 {
-    interface IWeapon
+    interface IInterface
     {
-        void Fire();
+        void Action();
     }
-    interface ITrowWeapon: IWeapon
+    interface IInterface2
     {
-        void Trow();
+        void Action();
     }
-    class Gun : IWeapon
+    class MyClass : IInterface, IInterface2
     {
-        public void Fire()
+       public void Action()
         {
-
-            Console.WriteLine($"{GetType().Name}: Пыщ!");
+            Console.WriteLine("Привет  MyClass Action");
         }
     }
-    class LaserGun : IWeapon
+    class MyOtherClass : IInterface, IInterface2
     {
-        public void Fire()
+        void IInterface.Action()
         {
-
-            Console.WriteLine($"{GetType().Name}: Пиу!");
+            Console.WriteLine("Привет   void IInterface.Action()");
         }
 
-       
-    }
-    class Knife : ITrowWeapon
-    {
-        public void Fire()
+        void IInterface2.Action()
         {
-            Console.WriteLine($"{GetType().Name}: ШлЁп!");
-        }
-        public void Trow()
-        {
-            Console.WriteLine($"{GetType().Name}: СВИЩЬЬЬ!");
-        }
-    }
-    class Player
-    {
-        public void Fire(IWeapon wepon) 
-        {
-        wepon.Fire();
-        }
-        public void Throw(ITrowWeapon weapon)
-        {
-           weapon.Trow();
-
+            Console.WriteLine("Привет   void IInterface2.Action()");
         }
     }
     class Program
-    {       
+    {
         static void Main(string[] args)
         {
-          Player player = new Player();
-            IWeapon[] inventory = {new Gun(), new LaserGun(), new Knife() };
-            foreach (var item in inventory)
+            MyClass myClass = new MyClass();
+            myClass.Action();
+            Foo(myClass);
+            Bar(myClass);
+            MyOtherClass myOtherClass = new MyOtherClass(); //для экземпляра недоступен Action(), т.к. не public
+            Foo(myOtherClass);
+            Bar(myOtherClass);
+           // Через ссылку на базовый
+            IInterface FirstInterface = myOtherClass;
+            FirstInterface.Action();
+            //Через приведение
+            if(myOtherClass is IInterface2 @interface)
             {
-                player.Fire(item);
+                @interface.Action();
             }
-            player.Throw(new Knife());  
+            //((IInterface2)myOtherClass).Action(); //is or as exeption
+
+
             Console.ReadLine();
         }
-               
-    }
+            static void Foo(IInterface FirstInterface)
+                      {
+                      FirstInterface.Action();
+                      }
+            static void Bar(IInterface2 SecondInterface) 
+                    {
+                    SecondInterface.Action();
+                    }
+        }
 }
+   
