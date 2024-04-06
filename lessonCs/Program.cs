@@ -7,42 +7,46 @@ using System.Text;
 using System.Threading.Tasks;
 
 //      OOП
-// boxing & unboxing
+// GEnerics (обобщения)
 
 namespace Lesson
 {
-    class ClassPoint
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public void Print()
-        {
-            Console.WriteLine($"X:{X}, Y:{Y}");
-        }
-    }
-    struct StructPoint
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public void Print()
-        {
-            Console.WriteLine($"X:{X}, Y:{Y}");
-        }
-    }
+   
     class Program
     {
         static void Main(string[] args)
         {
-            int a = 1;
-            object b = a;
-            int c= (int)b;
-            //decimal d = (decimal)b; //InvalidCastException
+            int a=1; 
+            int b=5;
+            Console.WriteLine($"a={a}\t b={b}");
+            Swap(ref a,ref b);
+            Console.WriteLine($"a={a}\t b={b}");
 
-            a.GetType();
+            double a1 = 1.2;
+            double b1 = 5.8;
+            Console.WriteLine($"a={a1}\t b={b1}");
+            Swap(ref a1, ref b1);
+            Console.WriteLine($"a={a1}\t b={b1}");
+
+            Foo<int>();
+
+
 
             Console.ReadLine();
         }
-           
+
+        static void Swap<T>(ref T a, ref T b)
+        {
+            T temp = a;
+            a = b; 
+            b = temp;
+        }
+        static T Foo<T>()
+        { 
+        return default(T);  
+
+        }
+
     }
 }
    
