@@ -16,36 +16,24 @@ namespace Lesson
     {
         static void Main(string[] args)
         {
-            int a=1; 
-            int b=5;
-            Console.WriteLine($"a={a}\t b={b}");
-            Swap(ref a,ref b);
-            Console.WriteLine($"a={a}\t b={b}");
-
-            double a1 = 1.2;
-            double b1 = 5.8;
-            Console.WriteLine($"a={a1}\t b={b1}");
-            Swap(ref a1, ref b1);
-            Console.WriteLine($"a={a1}\t b={b1}");
-
-            Foo<int>();
-
-
+            List<int> list = new List<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            Console.WriteLine(list[0]);
+            list[0] = 3;
+            Console.WriteLine("-----------------------------------------------------------------------");
+            foreach (var item in list)
+            {  Console.WriteLine(item); }
+            {
+                
+            }
 
             Console.ReadLine();
         }
 
-        static void Swap<T>(ref T a, ref T b)
-        {
-            T temp = a;
-            a = b; 
-            b = temp;
-        }
-        static T Foo<T>()
-        { 
-        return default(T);  
-
-        }
 
     }
 }
